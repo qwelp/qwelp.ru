@@ -1,0 +1,8 @@
+{
+  "name": "corpoBX",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "modernizer": "~2.8.2"
+  }
+}
