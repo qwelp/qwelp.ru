@@ -1,4 +1,4 @@
-# Верстка qwelp.ru (начало работы)
+# Верстка qwelp.ru
 
 * jade
 * sass
