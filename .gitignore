@@ -1,2 +1,3 @@
 dist/bower
 .idea
+node_modules

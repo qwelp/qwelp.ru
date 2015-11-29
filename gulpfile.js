@@ -1,7 +1,21 @@
 var gulp        = require('gulp'),
     browserSync = require('browser-sync').create(),
     sass        = require('gulp-sass'),
-    jade        = require('gulp-jade');
+    jade        = require('gulp-jade'),
+    concatCss   = require('gulp-concat-css'),
+    notify      = require('gulp-notify'),
+    concat      = require('gulp-concat'),
+    rename      = require("gulp-rename"),
+    minifyCSS   = require('gulp-minify-css');
+
+gulp.task('concat', function () {
+    gulp.src('app/scss/css/**/*.css')
+        .pipe(concatCss("common.css"))
+        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(gulp.dest('dist/css/'))
+        .pipe(browserSync.stream())
+        .pipe(notify("Watch Complete!"));
+});
 
 gulp.task('serve', ['sass'], function() {
 
@@ -9,6 +23,7 @@ gulp.task('serve', ['sass'], function() {
         server: "./dist/"
     });
 
+    gulp.watch('app/scss/css/**/*.css', ['concat']);
     gulp.watch("app/scss/*.scss", ['sass']);
     gulp.watch("app/jade/*.jade", ['jade']);
     gulp.watch("dist/js/**/*.js", ['js']);
@@ -20,8 +35,9 @@ gulp.task('sass', function() {
         .pipe(sass({
             pretty: true
         }))
-        .pipe(gulp.dest("dist/css"))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest("app/scss/css"))
+        .pipe(browserSync.stream())
+        .pipe(notify("Sass Complete!"));
 });
 
 gulp.task('jade', function() {
@@ -30,13 +46,16 @@ gulp.task('jade', function() {
             pretty: true
         }))
         .pipe(gulp.dest("dist"))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
+        .pipe(notify("Jade Complete!"));
 });
 
 gulp.task('js', function() {
     return gulp.src("dist/js/*.js")
         .pipe(gulp.dest("dist/js"))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream())
+        .pipe(notify("JS Complete!"));
 });
+
 
 gulp.task('default', ['serve']);
