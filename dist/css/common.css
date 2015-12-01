@@ -37,9 +37,7 @@ input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}
 input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
 fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
 .inlineblock{display:inline-block;vertical-align:top}
-.clearfix:after,.clearfix:before{content:"";display:table}
-.clearfix:after{clear:both}
-body{font:14px/1.41 Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+body{font-size:13px;font-size:.8125rem;-webkit-font-smoothing:antialiased}
 table{border-collapse:collapse;border-spacing:0}
 ul li{left:0;list-style:none}
 .wrapper{min-height:100%;height:auto!important;height:100%;overflow:hidden;min-width:1005px}

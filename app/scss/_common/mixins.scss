@@ -5,18 +5,20 @@
   vertical-align: top;
 }
 
-.clearfix {
-
-  &:before,
-  &:after {
-    content: "";
+/*
+@extend %clearfix;
+*/
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
     display: table;
   }
-
   &:after {
     clear: both;
   }
 }
+
 
 @mixin border-radius ($radius: 5px) {
   -webkit-border-radius: $radius;
@@ -92,4 +94,10 @@
   @media only screen and (max-width: 350px) {
     @content;
   }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
 }

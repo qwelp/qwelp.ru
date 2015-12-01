@@ -12,7 +12,8 @@ html {
   height: 100%;
 }
 body {
-  font: 14px/1.41 Arial, Helvetica, sans-serif;
+  //font: 14px/1.41 Arial, Helvetica, sans-serif;
+  @include font-size(13px);
   -webkit-font-smoothing: antialiased;
   width: 100%;
   height: 100%;
