@@ -1,31 +1,78 @@
-$footerHeight: 110px;
-$widthMaket: 975px;
+@import '_common/normalize';
+@import '_common/mixins';
 
-html, body {
+$footerHeight: 110px;
+$container-width: 985px;
+$container-medium-width: 350px;
+$container-small-width: 250px;
+
+
+html {
   width: 100%;
   height: 100%;
-  font-size: 100.01%;
 }
 body {
-  font: 14px/1.41 Verdana, Arial, sans-serif;
+  font: 14px/1.41 Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100%;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+ul {
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 0;
+    left: 0;
+    list-style: none outside none;
+  }
+}
+p {
+  padding: 0;
+  margin: 0;
+}
+
 
 .wrapper {
-
   position: relative;
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  min-width: $widthMaket;
   overflow: hidden;
+
+  min-width: $container-width + 20;
+
+  @include bp-medium {
+    min-width: $container-medium-width + 5;
+  }
+  @include bp-small {
+    min-width: $container-small-width + 5;
+  }
 
   &__empty {
     position: relative;
-    height: $footerHeight;
+    height: $footerHeight + 20;
+  }
+
+}
+
+.container {
+  margin: 0 auto;
+  width: $container-width;
+
+  border: 1px solid #000;
+
+  @include bp-medium {
+    min-width: $container-medium-width + 5;
+    max-width: 95%;
+  }
+  @include bp-small {
+    min-width: $container-small-width + 5;
+    max-width: 95%;
   }
 }
 
@@ -33,8 +80,22 @@ table {
   position: relative;
   margin-top: -$footerHeight;
   height: $footerHeight;
-  width: 100%;
-  min-width: $widthMaket;
+  min-width: $container-width + 20;
 
   background: #f1f1f1;
+
+  @include bp-medium {
+    min-width: $container-medium-width + 5;
+    max-width: 100%;
+    background: #61cc88;
+  }
+  @include bp-small {
+    min-width: $container-small-width + 5;
+    max-width: 100%;
+
+    background: #c00;
+  }
+
+
 }
+
