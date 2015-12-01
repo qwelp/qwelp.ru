@@ -25,7 +25,7 @@ gulp.task('serve', ['sass'], function() {
 
     gulp.watch('app/scss/css/**/*.css', ['concat']);
     gulp.watch("app/scss/*.scss", ['sass']);
-    gulp.watch("app/jade/*.jade", ['jade']);
+    gulp.watch("app/jade/**/*.jade", ['jade']);
     gulp.watch("dist/js/**/*.js", ['js']);
     gulp.watch("dist/.html").on('change', browserSync.reload);
 });
