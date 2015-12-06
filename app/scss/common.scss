@@ -1,11 +1,8 @@
 @import '_common/normalize';
 @import '_common/mixins';
+@import '_common/bootstrap-grid';
 
 $footerHeight: 110px;
-$container-width: 985px;
-$container-medium-width: 350px;
-$container-small-width: 250px;
-
 
 html {
   width: 100%;
@@ -36,8 +33,10 @@ p {
   padding: 0;
   margin: 0;
 }
-
-
+.wrapper, .footer {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .wrapper {
   position: relative;
   min-height: 100%;
@@ -45,58 +44,22 @@ p {
   height: 100%;
   overflow: hidden;
 
-  min-width: $container-width + 20;
-
-  @include bp-medium {
-    min-width: $container-medium-width + 5;
-  }
-  @include bp-small {
-    min-width: $container-small-width + 5;
-  }
-
   &__empty {
     position: relative;
     height: $footerHeight + 20;
   }
 
 }
-
-.container {
-  margin: 0 auto;
-  width: $container-width;
-
-  border: 1px solid #000;
-
-  @include bp-medium {
-    min-width: $container-medium-width + 5;
-    max-width: 95%;
-  }
-  @include bp-small {
-    min-width: $container-small-width + 5;
-    max-width: 95%;
-  }
-}
-
 .footer {
   position: relative;
   margin-top: -$footerHeight;
   height: $footerHeight;
-  min-width: $container-width + 20;
+}
+.container-fluid {
+  max-width: 1200px;
+}
 
-  background: #f1f1f1;
-
-  @include bp-medium {
-    min-width: $container-medium-width + 5;
-    max-width: 100%;
-    background: #61cc88;
-  }
-  @include bp-small {
-    min-width: $container-small-width + 5;
-    max-width: 100%;
-
-    background: #c00;
-  }
-
+.row {
 
 }
 

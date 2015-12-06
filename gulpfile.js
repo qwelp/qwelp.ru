@@ -6,7 +6,8 @@ var gulp        = require('gulp'),
     notify      = require('gulp-notify'),
     concat      = require('gulp-concat'),
     rename      = require("gulp-rename"),
-    minifyCSS   = require('gulp-minify-css');
+    minifyCSS   = require('gulp-minify-css'),
+    spritesmith = require('gulp.spritesmith');
 
 gulp.task('concat', function () {
     gulp.src('app/scss/css/**/*.css')
@@ -16,6 +17,16 @@ gulp.task('concat', function () {
         .pipe(browserSync.stream())
         .pipe(notify("Watch Complete!"));
 });
+
+
+gulp.task('sprite', function () {
+    var spriteData = gulp.src('app/scss/css/images/*.png').pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: 'sprite.css'
+    }));
+    return spriteData.pipe(gulp.dest('dist/images/sprites/'));
+});
+
 
 gulp.task('serve', ['sass'], function() {
 
